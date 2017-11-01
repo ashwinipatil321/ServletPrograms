@@ -1,0 +1,22 @@
+package com.bridgeit;
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+@SuppressWarnings("serial")
+public class DemoServlet extends HttpServlet {
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("html/txt");
+		PrintWriter pw=response.getWriter();
+		String str=request.getParameter("name");
+		pw.println("name...>"+str);
+		String id=request.getParameter("id");
+		pw.println("id..>"+id);
+		pw.close();
+		
+	}
+
+	}
+
+
