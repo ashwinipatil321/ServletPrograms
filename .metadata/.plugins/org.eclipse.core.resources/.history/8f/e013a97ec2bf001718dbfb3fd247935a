@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="DataAccessServlet" method="post">  
+FirstName:<input type="text" name="firstName"/><br/>  
+LastName:<input type="text" name="lastName"/><br/> 
+StudentRollNumber:<input type="number" name="StudentRollNumber"> 
+<input type="submit" value="submit"/>  
+</form>
+</body>
+</html>

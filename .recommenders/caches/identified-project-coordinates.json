@@ -1,1 +1,1 @@
-[[{"location":"/usr/lib/jvm/java-8-openjdk-amd64","type":"JRE","hints":{"EXECUTION_ENVIRONMENT":"JavaSE-1.8"}},"jre:jre:1.8.0"],[{"location":"/home/bridgeit/Downloads/apache-tomcat-7.0.37/lib/servlet-api.jar","type":"JAR","hints":{}},"ABSENT"],[{"location":"/home/bridgeit/Downloads/mysql-connector-java-5.1.44/mysql-connector-java-5.1.44-bin.jar","type":"JAR","hints":{}},"com.mysql.jdbc:com.mysql.jdbc:5.1.44"]]
+[[{"location":"/usr/lib/jvm/java-8-openjdk-amd64","type":"JRE","hints":{"EXECUTION_ENVIRONMENT":"JavaSE-1.8"}},"jre:jre:1.8.0"]]

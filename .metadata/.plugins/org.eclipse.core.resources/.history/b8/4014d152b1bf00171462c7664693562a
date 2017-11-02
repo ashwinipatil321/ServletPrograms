@@ -1,0 +1,31 @@
+package com.bridgeit11;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Date;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@SuppressWarnings("serial")
+@WebServlet("/DateServlet")
+public class DateServlet extends HttpServlet {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PrintWriter printWriter=response.getWriter();
+		response.setContentType("txt/html");
+		Date date= new Date();
+	//	printWriter.print("<html><body>"+date.toString()+"</body></html>");
+		printWriter.println("<html>");
+
+		printWriter.println("<head><title> Time Check </title></head>");
+
+		printWriter.println("<body>");
+
+		printWriter.println("<p>The time is: " + date.toString() + "</p>");
+
+		printWriter.println("</body></html>");
+	}
+}
