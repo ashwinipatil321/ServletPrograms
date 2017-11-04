@@ -9,22 +9,26 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
-@WebFilter("/MyFilter")
+
 public class MyFilter implements Filter {
 
-    public MyFilter() {
-    	
-    }
-	public void init(FilterConfig fConfig) throws ServletException {
-		System.out.println("filter Initialization....");
-	}
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-	
-		System.out.println("Do Filter by annotation...");
-		chain.doFilter(request, response);
-	}
+    
+
 	public void destroy() {
-		System.out.println("Filter is distroyed....");
+		System.out.println("filter destroyed");
+	}
+
+	
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+		
+	      System.out.println("do filter!!! by annotations " );  
+	         
+	       chain.doFilter(request,response); 
+		
+	}
+
+	public void init(FilterConfig fConfig) throws ServletException {
+		System.out.println("filter initilized");
 	}
 
 }

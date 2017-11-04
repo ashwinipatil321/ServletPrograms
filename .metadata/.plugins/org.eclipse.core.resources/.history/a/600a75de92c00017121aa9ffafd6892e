@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="DataAccessServlet" method="post">  
+EmployeeName:<input type="text" name="EmployeeName"/><br/>  
+EmpoyeeId:<input type="text" name="EmployeecId"/><br/> 
+EmpoyeeSalary:<input type="number" name="EmployeeSalary"><br/> 
+MobileNumber:<input type="text" name="MobileNumber"> 
+<input type="submit" value="submit"/>  
+</form>
+</body>
+</html>

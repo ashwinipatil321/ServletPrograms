@@ -7,9 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <form action="servlet1">  
-    Name:<input type="text" name="userName"/><br/>  
-    <input type="submit" value="go"/>  
-    </form>  
+    <form action="servlet1"method="post">
+  UserName: <input type="text" name="userName" /><br/>
+  Password: <input type="text" name="password" ><br/>
+  <input type="submit" value="submit">
+</form> 
 </body>
 </html>

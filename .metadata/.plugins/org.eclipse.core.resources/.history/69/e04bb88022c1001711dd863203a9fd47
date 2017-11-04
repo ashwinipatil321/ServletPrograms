@@ -1,0 +1,6 @@
+package com.bridgeit.Model;
+
+public class loginBean {
+	public String password ;
+	public String userName;
+}

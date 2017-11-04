@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 @SuppressWarnings("serial")
 public class MyServlet1 extends HttpServlet {
 	
+	protected void init(HttpServletRequest request,HttpServletResponse response){
+		System.out.println("instantion done");
+	}
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try{
 	          response.setContentType("text/html");

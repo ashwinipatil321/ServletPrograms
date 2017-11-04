@@ -9,17 +9,17 @@ import javax.servlet.http.HttpServletResponse;
 public class FirstServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try{  
-			response.setContentType("text/html");  
-			PrintWriter printWriter = response.getWriter();  
-
-			String name=request.getParameter("userName");  
-			printWriter.print("Welcome "+name);  
-
-			printWriter.print("<form action='SecondServlet'>");  
-			printWriter.print("<input type='hidden' name='uname' value='"+name+"'>");  
-			printWriter.print("<input type='submit' value='go'>");  
-			printWriter.print("</form>");  
-			printWriter.close();  
+			 response.setContentType("text/html;charset=UTF-8");
+		        PrintWriter printWriter = response.getWriter();
+		        
+			//getting value submitted in form from HTML file
+		        String userName = request.getParameter("userName");
+		        
+		        //creating a new hidden form field
+		        printWriter.println("<form action='SecondServlet'>");
+		        printWriter.println("<input type='hidden' name='userName' value='"+userName+"'>");
+		        printWriter.println("<input type='submit' value='submit' >");
+		        printWriter.println("</form>");
 
 		}catch(Exception e){
 			System.out.println(e);

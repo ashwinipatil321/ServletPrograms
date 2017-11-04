@@ -10,19 +10,18 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 @SuppressWarnings({ "unused", "serial" })
 public class servlet1 extends HttpServlet {
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try{  
-			response.setContentType("text/html");  
-			PrintWriter printWriter = response.getWriter();  
-
-			String name=request.getParameter("userName");  
-			printWriter.print("Welcome "+ name);  
-
-			HttpSession session=request.getSession();  
-			session.setAttribute("uname",name);  
-
-			printWriter.print("<a href='Servlet2'><br>visit</br></a>");  
-			printWriter.close();  
+			 String userName = request.getParameter("userName");
+		        String password = request.getParameter("password");
+		        
+		        if(password.equals("1234"))
+		        {
+		            //creating a session
+		            HttpSession session = request.getSession();
+		            session.setAttribute("user", userName);
+		            response.sendRedirect("Servlet2");
+		        } 
 		}catch(Exception e){
 			System.out.println(e);
 		}  

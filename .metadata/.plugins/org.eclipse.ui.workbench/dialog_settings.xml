@@ -5,18 +5,18 @@
 		<item value="10" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="org.eclipse.ui.internal.QuickAccess">
-		<item value="46" key="dialogHeight"/>
-		<item value="146" key="dialogWidth"/>
+		<item value="1" key="dialogHeight"/>
+		<item value="100" key="dialogWidth"/>
 		<list key="textEntries">
 			<item value="2"/>
-			<item value="1"/>
 			<item value="2"/>
+			<item value="1"/>
 			<item value="1"/>
 		</list>
 		<list key="orderedElements">
+			<item value="org.eclipse.wst.server.ui.ServersView"/>
 			<item value="org.eclipse.ui.console.ConsoleView"/>
 			<item value="org.eclipse.ui.views.ContentOutline"/>
-			<item value="org.eclipse.wst.server.ui.ServersView"/>
 			<item value="org.eclipse.ui.views.showView(org.eclipse.ui.views.showView.viewId=org.eclipse.ui.views.ResourceNavigator)"/>
 		</list>
 		<list key="orderedProviders">
@@ -26,11 +26,11 @@
 			<item value="org.eclipse.ui.commands"/>
 		</list>
 		<list key="textArray">
+			<item value="c"/>
+			<item value="server"/>
 			<item value="co"/>
 			<item value="console"/>
 			<item value="outline"/>
-			<item value="server"/>
-			<item value="c"/>
 			<item value="navi"/>
 		</list>
 	</section>

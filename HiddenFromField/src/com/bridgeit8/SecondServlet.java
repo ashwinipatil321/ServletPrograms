@@ -7,20 +7,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 @SuppressWarnings("serial")
 public class SecondServlet extends HttpServlet {
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try{  
-			response.setContentType("text/html");  
-			PrintWriter printWriter = response.getWriter();  
-
-			//Getting the value from the hidden field  
-			String name=request.getParameter("uname");  
-			printWriter.print("Hello "+ name);  
-
-			printWriter.close();  
-		}catch(Exception e){
-			System.out.println(e);
-		}  
-	}  
-}
-
+			  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			            throws ServletException, IOException {
+			        response.setContentType("text/html");
+			        PrintWriter out = response.getWriter();
+			        
+			        //getting parameter from the hidden field
+			        String userName = request.getParameter("userName");
+			        out.println("Welcome "+userName);
+			    }
+			}
 

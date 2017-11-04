@@ -1,0 +1,5 @@
+package com.bridgeit.mvcproject;
+
+public class LoginBean {
+
+}
