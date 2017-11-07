@@ -1,0 +1,89 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<style type="text/css">
+table {
+	border: 5px solid #D5D8DC;
+	padding: 75px;
+	margin: auto;
+	width=50%;
+}
+
+table {
+	background-color: coral;
+}
+
+.button {
+	text-align: center;
+	background-color: #4CAF50;
+}
+</style>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	$("#name").blur(function(){
+var name = $("#name").val();
+var nameRegex = /^[a-zA-Z ]*$/;
+if(name.length==0){
+	$("#error1").text("Please Enter name");
+}else if(!name.match(nameRegex)){
+	$("#error1").text("Please Enter charcter only");
+}else{
+	$("#error1").text("");
+}
+		});
+});
+</script>
+</head>
+<body>
+	<%@ include file="index.jsp"%>
+
+	<div>
+		<center>
+			<form action="RegisterServlet" method="post">
+				<table border="0">
+					<h2>Sign Up</h2>
+					<tr>
+						<td>Enter User Name</td>
+						<td><input type="text" name="UserName" id="name"/>
+						<span id="error1" style="color:red;font-size:15px;"></span></td>
+					</tr>
+
+					<tr>
+						<td>Enter Email Id</td>
+						<td><input type="text" name="EmailId"></td>
+					</tr>
+
+
+					<tr>
+						<td>Enter Password</td>
+						<td><input type="password" name="password"></td>
+					</tr>
+
+
+					<tr>
+						<td>Confirm Password</td>
+						<td><input type="password" name="confirmPassword"></td>
+					</tr>
+
+					<tr>
+						<td>Enter MobileNumber</td>
+						<td><input type="text" name="MobileNumber"></td>
+					</tr>
+					<center>
+						<tr>
+							<div style="text-align: center;">
+							<td><input type="submit" value="submit" class="submit"></td>
+							</div>
+						</tr>
+					</center>
+				</table>
+			</form>
+	</div>
+</body>
+</html>

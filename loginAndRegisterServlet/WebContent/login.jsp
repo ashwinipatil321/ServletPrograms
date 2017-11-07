@@ -1,101 +1,111 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="login.css">
+<script type="text/javascript">
+ function validate(){
+		var email=document.getElementById("email").value;
+	
+		var emailValidation=/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+		if(!emailValidation.test(email)) {
+			$("#email").css("border-color", "red");
+			$("#email").after( "<span id='errors'> <font color= 'red'> Not a valid email </font></span>")
+			//alert("Enter valid email address");
+			return false;
+		} else {
+			$("#email").css("border-color", "green");
+			$("#email").removeClass("errors");
+		}
+ }
+ 
+ </script>
 <style>
-form {
-    border: 3px solid #f1f1f1;
-}
-
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-button:hover {
-    opacity: 0.8;
-}
-
-.cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
-}
-
-.imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-}
-
-img.avatar {
-    width: 40%;
-    border-radius: 50%;
-}
-
-.container {
-    padding: 16px;
-}
-
-span.psw {
-    float: right;
-    padding-top: 16px;
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-    span.psw {
-       display: block;
-       float: none;
-    }
-    .cancelbtn {
-       width: 100%;
-    }
+h2 {
+	color: green;
+	text-align: center;
 }
 </style>
+<title>Log in</title>
+</head>
 <body>
-    <%@ include file="index.jsp" %>  
-    <hr/>  
-      
-    <h3>Login Form</h3> 
+	<h2>Login User</h2>
+	<div class="container">
 
-<form action="html.">
-  <div class="imgcontainer">
-    <img src="img_avatar2.png" alt="Avatar" class="avatar">
-  </div>
+		<div class="card card-container">
+			<font color="red"> <%
+	String message=(String)request.getAttribute("error");
+	if(message!=null) {
+		out.println(message);
+		request.removeAttribute("error");
+	}
+%>
+			</font>
+			<div class="row">
 
-  <div class="container">
-    <label><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<form action="LoginController" method="post" class="form-signin"
+						onsubmit="return validate()">
 
-    <label><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-        
-    <button type="submit">Login</button>
-    <input type="checkbox" checked="checked"> Remember me
-  </div>
+						<div class="row">
 
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
-  </div>
-</form>
+							<div class="col-xs-12 col-sm-12 col-md-12">
+
+								<span id="reauth-email" class="reauth-email"
+									class="col-xs-12 col-sm-12 col-md-12"> </span> <label>Enter
+									Email Id</label> <input type="email" id="email" name="emailId"
+									placeholder="Enter your Email" required>
+							</div>
+						</div>
+						<div class="row">
+
+							<div class="col-xs-12 col-sm-12 col-md-12">
+
+								<label>Enter Password </label> <input type="password"
+									name="password" placeholder="Enter your password" required>
+							</div>
+						</div>
+						<div class="row">
+
+							<div class="col-xs-12 col-sm-12 col-md-12">
+								<button type="submit"
+									class="btn btn-lg btn-primary btn-block btn-signin">
+									<a href="Home.jsp">login</a>
+								</button>
+							</div>
+						</div>
+				</div>
+			</div>
+			<button type="submit" id="button"
+				class="btn btn-lg btn-primary btn-block btn-signin">
+				<a href="Register.jsp">Sign Up</a>
+			</button>
+		</div>
+		<!-- /card-container -->
+	</div>
+	<!-- container -->
+	<!--  <script type="text/javascript" src="login.js"></script>
+ -->
+	</form>
 </body>
 </html>
+
+
+
+
+
+
+

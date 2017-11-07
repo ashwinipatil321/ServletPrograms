@@ -1,0 +1,34 @@
+package com.bridgeit.Dao;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+public class LoginDao {
+	
+public static  ResultSet check(String inputUserName,String inputPassword)
+{
+	Connection connection=null;
+	String username=null;
+	String password=null;
+	ResultSet resultSet=null;
+	String query="select * from Register";
+	try{
+		connection = ConnectionClass.getConnection();
+		Statement statement = connection.createStatement();
+		resultSet=statement.executeQuery(query);
+		while(resultSet.next())
+		{
+		 username=resultSet.getString(1);
+	     password=resultSet.getString(2);
+		}
+		if(inputUserName.equals(username) && inputPassword.equals(password))
+		{
+			/*System.out.println("You are successfully registered");  
+			response.sendRedirect(" loginprocess.jsp");*/
+		}
+	}
+	catch(Exception e){
+		e.printStackTrace();
+	}
+	return resultSet;  
+}
+}

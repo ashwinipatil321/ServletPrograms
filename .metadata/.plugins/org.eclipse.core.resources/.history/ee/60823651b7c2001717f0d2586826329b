@@ -1,0 +1,5 @@
+package com.bridgeit.Model;
+
+public class LoginBean {
+
+}

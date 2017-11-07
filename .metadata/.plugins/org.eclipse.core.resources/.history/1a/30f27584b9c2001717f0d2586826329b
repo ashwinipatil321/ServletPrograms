@@ -1,0 +1,7 @@
+package com.bridgeit.Dao;
+
+import java.sql.Connection;
+
+public class LoginDao {
+	Connection connection=null;
+}

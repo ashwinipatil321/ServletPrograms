@@ -1,0 +1,14 @@
+package com.bridgeit.Dao;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class LoginDao {
+	
+
+
+public static ResultSet check(String inputUserName, String inputPassword) {
+	// TODO Auto-generated method stub
+	return null;
+}
+}

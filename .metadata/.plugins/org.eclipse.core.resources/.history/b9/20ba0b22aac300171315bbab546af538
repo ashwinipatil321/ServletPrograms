@@ -1,0 +1,134 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <link rel="stylesheet" type="text/css" href="register.css">
+<script type="text/javascript">
+
+function validate(){
+	console.log("inside")
+	
+	var email=document.getElementById("email").value;
+	var mobileNumber=document.getElementById("mobile").value;
+	var confirmPassword=document.getElementById("confirmpassword").value;
+	var password=document.getElementById("password").value;
+	var emailValidation=/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+	var mobileValidation=/^((\+)?(\d{2}[-]))?(\d{10}){1}?$/;
+	var isError=false;
+	
+	if(!emailValidation.test(email)) {
+		$("#email").css("border-color", "red");
+		$("#email").after( "<span id='errors'> <font color= 'red'> Not a valid email </font></span>")
+		isError=true;
+	} else {
+		$("#email").css("border-color", "green");
+		$("#errors").remove();
+	}
+	if(confirmPassword!=password) {
+		$("#password").css("border-color", "red");
+		$("#confirmpassword").css("border-color", "red");
+		$("#confirmpassword").after( "<span id='errors'> <font color= 'red'> passwords are not matching </font></span>")
+		isError=true;
+	} else {
+		$("#password").css("border-color", "green");
+		$("#confirmpassword").css("border-color", "green");
+		$("#errors").remove();
+	}
+	if(!mobileValidation.test(mobileNumber)) {
+		$("#mobile").css("border-color", "red");
+		$("#mobile").after( "<span id='errors'> <font color= 'red'> enter valid 10 digit number </font></span>")
+		alert()
+		isError=true;
+	} else {
+		$("#mobile").css("border-color", "green");
+		$("#errors").remove();
+	}
+	if(isError==true) {
+		return false;
+	
+	}
+}
+</script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#name").blur(function() {
+			var name = $("#name").val();
+			var nameRegex = /^[a-zA-Z ]*$/;
+			if (name.length == 0) {
+				$("#error1").text("Please Enter name");
+			} else if (!name.match(nameRegex)) {
+				$("#error1").text("Please Enter charcter only");
+			} else {
+				$("#error1").text("");
+			}
+		});
+	});
+</script>
+<Style>
+.h2 {
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	
+	<div>
+	
+			<form action="RegisterServlet" method="post">
+				<table border="0">
+					<h2>Sign Up</h2>
+					<div class="form-group">
+						<label for="userName">Enter User Name</label> <input type="text"
+							class="col-sm-2 control-label" id="name"
+							placeholder="Enter User Name" name="UserName"> <span
+							id="error1" style="color: red; font-size: 15px;"></span>
+					</div>
+					<div class="form-group">
+						<label for="email">Enter Email Id</label> <input type="email"
+							class="col-sm-2 control-label" id="EmailId"
+							placeholder="Enter email Id" name="EmailId">
+					</div>
+
+					<div class="form-group">
+						<label for="pwd">Enter Password</label> <input type="password"
+							class="col-sm-2 control-label" id="password"
+							placeholder="Enter password" name="password">
+					</div>
+
+					<div class="form-group">
+						<label for="pwd">Confirm Password</label> <input type="password"
+							class="col-sm-2 control-label" id="confirmPassword"
+							placeholder="Enter password" name="confirmPassword">
+					</div>
+
+					<div class="form-group">
+						<label for="MobileNumber">Enter MobileNumber</label> <input
+							type="text" class="col-sm-4 control-label" id="MobileNumber"
+							placeholder="Enter mobile number" name="MobileNumber">
+					</div>
+
+					<button type="submit" class="btn btn-success">submit</button>
+					<button type="submit" class="btn btn-danger">
+						<a href="login.jsp">cancel</a>
+					</button>
+
+
+				</table>
+
+
+			<button type="submit" class="btn btn-success">submit</button>
+					<button type="submit" class="btn btn-danger">
+						<a href="login.jsp">cancel</a>
+					</button>
+
+					</div>
+				</div>
+		</fieldset>
+		</form>
+
+	</div>
+</body>
+</html>

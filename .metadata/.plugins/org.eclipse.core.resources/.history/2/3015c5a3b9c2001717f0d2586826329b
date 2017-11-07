@@ -1,0 +1,31 @@
+package com.bridgeit.Dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+import com.bridgeit.Model.LoginBean;
+
+public class LoginDao {
+	
+public static  boolean check()
+{
+	Connection connection=null;
+	LoginBean loginbean= new LoginBean();
+	try{  
+		Class.forName("com.mysql.jdbc.Driver");
+		 connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/LoginAndRegister","root","ninja");
+		PreparedStatement preparedStatement = connection.prepareStatement("insert into Register values(?,?,?,?,?)");
+		preparedStatement.setString(1, loginbean.getUserName() );
+		preparedStatement.setString(2,loginbean.getPassword());
+		
+		System.out.println("before execute update");
+		System.out.println("sucess");
+		preparedStatement.close();
+	}
+	catch(Exception e){
+		e.printStackTrace();
+	}
+	return false;  
+}
+}

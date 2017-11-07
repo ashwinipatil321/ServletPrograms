@@ -1,0 +1,38 @@
+package com.bridgeit.Controller;
+
+import java.io.IOException;
+import java.sql.ResultSet;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.bridgeit.Dao.LoginDao;
+
+
+@WebServlet("/Login")
+public class Login extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	ResultSet resultSet=null;
+	String username=null;
+	String password=null;
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String inputUserName=request.getParameter("username");
+		String inputPassword=request.getParameter("password");
+		resultSet=LoginDao.check();
+		while(resultSet.next())
+		{
+		 username=resultSet.getString(1);
+	     password=resultSet.getString(2);
+		}
+		if(inputUserName.equals(username) && inputPassword.equals(password))
+		{
+			/*System.out.println("You are successfully registered");  
+			response.sendRedirect(" loginprocess.jsp");*/
+		}
+	}
+	}
+
+}

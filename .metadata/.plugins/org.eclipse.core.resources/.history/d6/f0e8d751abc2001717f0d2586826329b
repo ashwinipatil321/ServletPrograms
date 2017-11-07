@@ -1,0 +1,32 @@
+package com.bridgeit.Dao;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import com.bridgeit.Model.RegisterBean;
+public class RegisterDao {
+	public int validate(){  
+		int count = 0;
+		Connection connection=null;
+		try{  
+			Class.forName("com.mysql.jdbc.Driver");
+			connection=DriverManager.getConnection("jdbc:mysql://localhost:3306","root","ninja");
+			PreparedStatement preparedStatement = connection.prepareStatement("insert into LoginAndRegister.Register values(?,?,?,?,?");
+			preparedStatement.setString(1, getUserName() );
+			preparedStatement.setString(2,getEmailId());
+			preparedStatement.setString(3, getPassword());
+			preparedStatement.setString(4, getConfirmPassword);
+			preparedStatement.setString(5, getMobileNumber());
+			count=preparedStatement.executeUpdate();
+		}
+		catch(Exception e){
+			
+		}  
+		return count;  
+	}
+
+	private String getUserName() {
+		// TODO Auto-generated method stub
+		return null;
+	}  
+}  
+

@@ -1,0 +1,32 @@
+package com.bridgeit.Dao;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import com.bridgeit.Model.LoginBean;
+public class LoginDao {
+	
+public static  boolean check()
+{
+	Connection connection=null;
+	LoginBean loginbean= new LoginBean();
+	String query="select * from Register";
+	try{
+		connection = ConnectionClass.getConnection();
+		Statement statement = connection.createStatement();
+		ResultSet resultSet=statement.executeQuery(query);
+		while(resultSet.next())
+		{
+			String username=resultSet.getString(1);
+			String password=resultSet.getString(2);
+		}
+		
+		System.out.println("before execute update");
+		System.out.println("sucess");
+		
+	}
+	catch(Exception e){
+		e.printStackTrace();
+	}
+	return true;  
+}
+}

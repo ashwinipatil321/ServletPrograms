@@ -1,0 +1,43 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title> welcome Login page</title>
+<style type="text/css">
+center{
+border:1px solid #D5D8DC;
+padding:50px;
+margin:auto;
+background-color:#CCEEFF;
+width:35%;
+}
+
+.button {
+    background-color: #4CAF50;
+}
+.button1 {
+    background-color: #4CAF50;
+}
+</style>
+</head>
+
+<body>
+	<h1>Login Page</h1>
+	<center>
+		<h2>Login User</h2>
+		<form action="Login" method="post"><br />
+			 Email Id
+			<input type="text" name="emailId"> <br /><br>
+			 Password
+			<input type="password" name="password"> <br /><br>
+			<input type="submit" value="Submit" class="button">
+			 <a href="Register.jsp">
+			 <input type="button" value="cancel" class="button1"></a>
+		</form>
+	</center>
+</body>
+</html>
+
+

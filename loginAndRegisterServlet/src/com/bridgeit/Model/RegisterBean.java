@@ -13,18 +13,6 @@ public String getUserName() {
 public void setUserName(String userName) {
 	UserName = userName;
 }
-public String getConfirmPassword() {
-	return ConfirmPassword;
-}
-public void setConfirmPassword(String confirmPassword) {
-	ConfirmPassword = confirmPassword;
-}
-public String getMobileNumber() {
-	return mobileNumber;
-}
-public void setMobileNumber(String mobileNumber) {
-	this.mobileNumber = mobileNumber;
-}
 public String getEmailId() {
 	return EmailId;
 }
@@ -37,4 +25,18 @@ public String getPassword() {
 public void setPassword(String password) {
 	this.password = password;
 }
+public String getConfirmPassword() {
+	return ConfirmPassword;
+}
+public void setConfirmPassword(String confirmPassword) {
+	ConfirmPassword = confirmPassword;
+}
+public String getMobileNumber() {
+	return mobileNumber;
+}
+public void setMobileNumber(String mobileNumber) {
+	this.mobileNumber = mobileNumber;
+}
+
+
 }
