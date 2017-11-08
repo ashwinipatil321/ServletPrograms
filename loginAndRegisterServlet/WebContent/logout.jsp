@@ -11,7 +11,8 @@
         session.removeAttribute("inputPassword");
         session.invalidate();
         %>
-        <h1>Logout was done successfully.</h1>
 		<form action="login.jsp">
+		<h1>Logout was done successfully.</h1>
+		</form>>
 </body>
 </html>

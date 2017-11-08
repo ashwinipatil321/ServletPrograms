@@ -1,0 +1,6 @@
+package com.bridgeit.Controller;
+import java.sql.ResultSet;
+import com.bridgeit.Model.LoginBean;
+public interface LoginInterface {
+
+}

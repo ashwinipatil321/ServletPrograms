@@ -1,0 +1,32 @@
+package com.bridgeit.Dao;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.bridgeit.Model.LoginBean;
+
+public class LoginDao {
+	
+public void	result(LoginBean resultSet)
+	{
+	String dataEmailId = null;
+	String dataPassword = null;
+	
+	try {
+		while (resultSet.next()) {
+			dataEmailId = resultSet.getString(2);
+			dataPassword = resultSet.getString(3);
+             System.out.println(dataEmailId);
+			if (inputemailId.equals(dataEmailId) && inputPassword.equals(dataPassword)) {
+				response.sendRedirect(" Home.jsp");
+				session.setAttribute("emailId", dataEmailId);
+			} else {
+				response.sendRedirect("Error.jsp");
+			}
+		}
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}	
+		}
+
+}

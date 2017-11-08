@@ -1,0 +1,14 @@
+package com.bridgeit.service;
+import java.sql.ResultSet;
+import com.bridgeit.Dao.LoginDao;
+import com.bridgeit.Model.LoginBean;
+public class ServiceClass {
+	LoginDao loginDao=new LoginDao();
+	//public ResultSet check(String inputemailId, String inputPassword) {
+	public ResultSet check(LoginBean loginBean) {
+		ResultSet resultSet=loginDao.result(loginBean);
+		return resultSet;	
+	}
+}
+
+

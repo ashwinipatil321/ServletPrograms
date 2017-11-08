@@ -1,0 +1,5 @@
+package LoginInterface;
+
+public interface LoginService {
+
+}

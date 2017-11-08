@@ -1,0 +1,26 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import com.bridgeit.Controller.LoginInterface;
+import com.bridgeit.Dao.ConnectionClass;
+import com.bridgeit.Model.LoginBean;
+
+public  class LoginClass implements LoginInterface{
+	public ResultSet check() {
+Connection connection=null;
+	ResultSet resultSet=null;
+	try{
+		connection = ConnectionClass.getConnection();
+		PreparedStatement statement= connection.prepareStatement("select * from Register where EmailId=? and password=?");
+		statement.setString(1, loginBean.getEmailId());
+		statement.setString(2, loginBean.getPassword());
+		resultSet=statement.executeQuery();
+	}
+	catch(Exception e){
+		e.printStackTrace();
+	}
+	return resultSet;  
+}
+
+}

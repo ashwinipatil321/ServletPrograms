@@ -11,15 +11,15 @@
 <script type="text/javascript">
 	function validate() {
 		console.log("inside")
-
+		var name = document.getElementById("name").value;
 		var email = document.getElementById("email").value;
 		var mobileNumber = document.getElementById("mobile").value;
 		var confirmPassword = document.getElementById("confirmpassword").value;
 		var password = document.getElementById("password").value;
 		var emailValidation = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 		var mobileValidation = /^((\+)?(\d{2}[-]))?(\d{10}){1}?$/;
+		var userNameValidation = /^[a-zA-Z ]+$/;
 		var isError = false;
-
 		if (!emailValidation.test(email)) {
 			$("#email").css("border-color", "red");
 			$("#email")
@@ -47,7 +47,6 @@
 			$("#mobile")
 					.after(
 							"<span id='errors'> <font color= 'red'> enter valid 10 digit number </font></span>")
-			alert()
 			isError = true;
 		} else {
 			$("#mobile").css("border-color", "green");
@@ -55,40 +54,35 @@
 		}
 		if (isError == true) {
 			return false;
-
 		}
 	}
-</script>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$("#name").blur(function() {
-			var name = $("#name").val();
-			var nameRegex = /^[a-zA-Z ]*$/;
-			if (name.length == 0) {
-				$("#error1").text("Please Enter name");
-			} else if (!name.match(nameRegex)) {
-				$("#error1").text("Please Enter charcter only");
-			} else {
-				$("#error1").text("");
-			}
-		});
-	});
+	if (!userNameValidation.test(name)) {
+		$("#name").css("border-color", "red");
+		$("#name")
+				.after(
+						"<span id='errors'> <font color= 'red'> enter character only </font></span>")
+		isError = true;
+	} else {
+		$("#name").css("border-color", "green");
+		$("#error").remove();
+	}
+	
 </script>
 <style>
 h2 {
-    color: green;
-    text-align: center;
+	color: green;
+	text-align: center;
 }
 </style>
 </head>
 <body>
 
-<h2>Create An Account</h2>
+	<h2>Create An Account</h2>
 	<div class="container">
 		<div class="card card-container">
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12">
-					<form action="RegisterServlet" method="post"
+					<form action="RegisterController" method="post"
 						onsubmit="return validate()" class="form-signup">
 
 						<div class="row">
@@ -97,9 +91,8 @@ h2 {
 
 								<span id="reauth-email" class="reauth-email"
 									class="col-xs-15 col-sm-15 col-md-15"> </span> <label>Enter
-									User Name</label><br> <input type="text" name="UserName"
-									placeholder="Enter your Name" required> <span
-									id="error1" style="color: red; font-size: 15px;"></span>
+									User Name</label><br> <input type="text" name="UserName" id="name"
+									placeholder="Enter your Name" required> 
 							</div>
 						</div>
 						<div class="row">
@@ -121,37 +114,36 @@ h2 {
 							</div>
 						</div>
 
-					<div class="row">
-						<div class="col-xs-12 col-sm-12 col-md-12">
-
-							<label>Confirm Password</label><br> <input type="password"
-								id="confirmpassword" name="confirmPassword"
-								placeholder="Re-enter your password" required>
-						</div>
-				</div>
-					<div class="row">
-						<div class="col-xs-12 col-sm-12 col-md-12">
- 
-							<label>Confirm Mobile  eNumber</label><br> <input type="number"
-								id="mobile" name="MobileNumber"
-								placeholder="Enter your  mobile number" required>
-						</div>
-				
 						<div class="row">
-						
 							<div class="col-xs-12 col-sm-12 col-md-12">
-						
-								<button type="submit" id="button" class="btn btn-lg btn-primary btn-block btn-signup"><a href="login.jsp">submit</a>></button>
-							
+
+								<label>Confirm Password</label><br> <input type="password"
+									id="confirmpassword" name="confirmPassword"
+									placeholder="Re-enter your password" required>
 							</div>
 						</div>
-						</button>
-					</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12">
+
+								<label>Confirm Mobile eNumber</label><br> <input
+									type="number" id="mobile" name="MobileNumber"
+									placeholder="Enter your  mobile number" required>
+							</div>
+
+							<div class="row">
+
+								<div class="col-xs-12 col-sm-12 col-md-12">
+
+									<button type="submit" id="button"
+										class="btn btn-lg btn-primary btn-block btn-signup"><a href="login.jsp">
+										submit</a></button>
+
+								</div>
+							</div>
+					</form>
 				</div>
-				</form>
 			</div>
 		</div>
-	</div>
 	</div>
 </body>
 </html>

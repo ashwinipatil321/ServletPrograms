@@ -1,0 +1,8 @@
+package com.bridgeit.service;
+
+import java.sql.ResultSet;
+public class Service {
+	ResultSet resultSet = null;
+	resultSet = loginClass.check(loginBean);
+
+}

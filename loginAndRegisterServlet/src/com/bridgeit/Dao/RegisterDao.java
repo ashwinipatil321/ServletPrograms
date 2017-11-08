@@ -1,13 +1,11 @@
 package com.bridgeit.Dao;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import com.bridgeit.Model.RegisterBean;
-
 public class RegisterDao {
-	public static int validate(RegisterBean registerBean) {
+	public int register(RegisterBean registerBean) {
 		int count = 0;
 		Connection connection = null;
 		try {
@@ -32,7 +30,5 @@ public class RegisterDao {
 			}
 		}
 		return count;
-
 	}
-
 }

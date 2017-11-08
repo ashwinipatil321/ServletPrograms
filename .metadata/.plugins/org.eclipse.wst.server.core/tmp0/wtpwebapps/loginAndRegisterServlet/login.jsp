@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -17,22 +16,23 @@
 
 <link rel="stylesheet" type="text/css" href="login.css">
 <script type="text/javascript">
- function validate(){
-		var email=document.getElementById("email").value;
-	
-		var emailValidation=/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-		if(!emailValidation.test(email)) {
+	function validate() {
+		var email = document.getElementById("email").value;
+
+		var emailValidation = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+		if (!emailValidation.test(email)) {
 			$("#email").css("border-color", "red");
-			$("#email").after( "<span id='errors'> <font color= 'red'> Not a valid email </font></span>")
+			$("#email")
+					.after(
+							"<span id='errors'> <font color= 'red'> Not a valid email </font></span>")
 			//alert("Enter valid email address");
 			return false;
 		} else {
 			$("#email").css("border-color", "green");
 			$("#email").removeClass("errors");
 		}
- }
- 
- </script>
+	}
+</script>
 <style>
 h2 {
 	color: green;
@@ -47,17 +47,17 @@ h2 {
 
 		<div class="card card-container">
 			<font color="red"> <%
-	String message=(String)request.getAttribute("error");
-	if(message!=null) {
-		out.println(message);
-		request.removeAttribute("error");
-	}
-%>
+ 	String message = (String) request.getAttribute("error");
+ 	if (message != null) {
+ 		out.println(message);
+ 		request.removeAttribute("error");
+ 	}
+ %>
 			</font>
 			<div class="row">
 
 				<div class="col-xs-12 col-sm-12 col-md-12">
-					<form action="LoginController" method="post" class="form-signin"
+					<form action="LoginControllers" method="post" class="form-signin"
 						onsubmit="return validate()">
 
 						<div class="row">
@@ -79,33 +79,30 @@ h2 {
 							</div>
 						</div>
 						<div class="row">
-
 							<div class="col-xs-12 col-sm-12 col-md-12">
 								<button type="submit"
 									class="btn btn-lg btn-primary btn-block btn-signin">
-									<a href="Home.jsp">login</a>
+									login
+								</button>
+							</div>
+							</div>
+							</form>
+						<div class="row">
+
+							<div class="col-xs-12 col-sm-12 col-md-12">
+
+								<button type="submit" id="button"
+									class="btn btn-lg btn-primary btn-block btn-signin">
+									<a href="Register.jsp">Sign Up</a>
 								</button>
 							</div>
 						</div>
 				</div>
+
 			</div>
-			<button type="submit" id="button"
-				class="btn btn-lg btn-primary btn-block btn-signin">
-				<a href="Register.jsp">Sign Up</a>
-			</button>
 		</div>
-		<!-- /card-container -->
-	</div>
-	<!-- container -->
-	<!--  <script type="text/javascript" src="login.js"></script>
- -->
-	</form>
+		</div>
 </body>
 </html>
-
-
-
-
-
 
 

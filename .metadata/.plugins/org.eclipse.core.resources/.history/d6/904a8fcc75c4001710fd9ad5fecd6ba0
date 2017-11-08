@@ -1,0 +1,20 @@
+package com.bridgeit.Controller;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import com.bridgeit.Dao.ConnectionClass;
+import com.bridgeit.Dao.LoginDao;
+import com.bridgeit.Model.LoginBean;
+
+import LoginService.LoginService;
+
+public class ImplementionClass implements LoginService {
+	
+	LoginDao loginDao=new LoginDao();
+	@Override
+	public ResultSet check(String inputemailId, String inputPassword) {
+		ResultSet resultSet=loginDao.result(inputemailId,inputPassword);
+		return resultSet;	}
+}

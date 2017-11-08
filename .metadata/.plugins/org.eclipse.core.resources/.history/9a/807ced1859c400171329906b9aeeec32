@@ -1,0 +1,6 @@
+package LoginService;
+import java.sql.ResultSet;
+import com.bridgeit.Model.LoginBean;
+public interface LoginService {
+	public static ResultSet check(LoginBean loginBean);
+}

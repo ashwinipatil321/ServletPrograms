@@ -1,0 +1,56 @@
+package com.bridgeit.Controller;
+
+import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.bridgeit.Dao.LoginDao;
+import com.bridgeit.Model.LoginBean;
+import com.bridgeit.service.Service;
+
+@WebServlet("/LoginControllers")
+public class LoginControllers extends HttpServlet {
+		private static final long serialVersionUID = 1L;
+		ResultSet resultSet = null;
+		String dataEmailId = null;
+		String dataPassword = null;
+		ServletRequest session;
+
+		protected void doPost(HttpServletRequest request, HttpServletResponse response)
+				throws ServletException, IOException {
+			String inputemailId = request.getParameter("emailId");
+			String inputPassword = request.getParameter("password");
+			LoginBean loginBean = new LoginBean();
+			loginBean.setEmailId(inputemailId);
+			loginBean.setPassword(inputPassword);
+			LoginClass loginClass= new LoginClass();
+			Service service=new Service();
+			
+			resultSet = loginClass.check(loginBean);
+			try {
+				while (resultSet.next()) {
+					dataEmailId = resultSet.getString(2);
+					dataPassword = resultSet.getString(3);
+	                 System.out.println(dataEmailId);
+					if (inputemailId.equals(dataEmailId) && inputPassword.equals(dataPassword)) {
+						response.sendRedirect(" Home.jsp");
+						session.setAttribute("emailId", dataEmailId);
+					} else {
+						response.sendRedirect("Error.jsp");
+					}
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+		}
+	}
+
+
